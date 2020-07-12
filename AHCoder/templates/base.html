@@ -1,0 +1,212 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock title %}</title>
+    
+    <style>{% block css %}{% endblock css %}</style>
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600|Nunito" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script>
+      $(document).ready(function(){
+	$(window).bind('scroll', function() {
+		var navHeight = $('.main-header').height();
+		if ($(window).scrollTop() > navHeight) {
+			$('.nav-bar').addClass('fixed');
+			$('.nav-1').addClass('toleft');
+		 }
+		else {
+			$('.nav-bar').removeClass('fixed');
+			$('.nav-1').removeClass('toleft');
+		 }
+	});
+});
+  </script>
+  <style>
+      h1, h2 {
+  margin: 0;
+}
+h1 {
+  padding: 50px 0;
+}
+h2 {
+  padding: 25px 0;
+}
+h3 {
+  padding-top: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans serif;
+  background-color: white;
+  }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 1000px;
+  position: absolute;
+  top: 225px;
+  width: 100%;
+  z-index: -1;
+}
+
+.main-header {
+  display: flex;
+  justify-content: left;
+  background: cornsilk;
+  position: relative;
+  top: 0;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: darkcyan;
+  transition: background .5s
+}
+
+.nav-1 {
+  transition: margin-right .5s ease;
+}
+
+.content {
+  background: #c0c0c3;
+  color: #414041;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: darkslategrey;
+}
+
+.toleft {
+  margin-right: 50%;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+
+body {
+	background:white;
+	font-size: 15px;
+}
+#wrap {
+  margin: 5px 50px;
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  padding: 0;
+  position: relative;
+  left: 45%;
+}
+
+input[type="search"] {
+  height: 60px;
+  font-size: 35px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: rgb(20, 2, 2);
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+}
+
+input[type="search"]:focus:hover {
+  border-bottom: 1px solid #BBB;
+}
+
+input[type="search"]:focus {
+  width: 300px;
+  z-index: 1;
+  border-bottom: 1px solid #BBB;
+  cursor: text;
+}
+input[type="submit"] {
+  height: 67px;
+  width: 63px;
+  display: inline-block;
+  color:red;
+  float: right;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
+  </style>
+  </head>
+  <body style="overflow-x: hidden;">
+	    <div class="main-header">
+        {% load static %}<img src="/static/img/log.png" width="180"  height="90">
+          <div id="wrap" style="position: relative;left: 83%;">
+            <form method="get" action="/search" autocomplete="on">
+            <input id="query" name="query" type="search" placeholder="search..."><input id="search_submit" value="Rechercher" type="submit">
+            </form>
+          </div>
+        </div>
+        
+	    <section class="nav-bar">
+	      <a href="/" class="nav-1" style="text-decoration: none;color: antiquewhite;"><h2>Home</h2></a>
+	      <a href="/about" class="nav-2" style="text-decoration: none;color: antiquewhite;"><h2>About</h2></a>
+        <a href="/contact" class="nav-3" style="text-decoration: none;color: antiquewhite;"><h2>Contact</h2></a>
+        {% if user.is_authenticated %}
+	      <a href="#" class="nav-4" style="text-decoration: none;color: antiquewhite;"><h2>Welcome {{request.user}}</h2></a>
+          <a href="/logout" class="nav-5" style="text-decoration: none;color: antiquewhite;"><h2>Logout</h2></a>
+        {% else %}
+        <a href="/log" class="nav-4" style="text-decoration: none;color: antiquewhite;"><h2>Login</h2></a>
+        <a href="/reg" class="nav-5" style="text-decoration: none;color: antiquewhite;"><h2>Sign Up</h2></a>
+        {% endif %}
+     
+	    </section>
+    <script type="text/javascript" src="javascript/jquery-2.2.4.js"></script>
+    {% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" style="color: black;">
+  <strong>Message : </strong> {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+{% block body %} {% endblock body %}
+
+{% block js %}
+
+{% endblock js %}
+
+
+
+
+	</body>
+</html>

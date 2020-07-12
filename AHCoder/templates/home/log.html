@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock title %}
+{% block loginactive %} active {% endblock loginactive %}
+
+{% block css %} 
+body {
+
+background-repeat: no-repeat;
+background-size: cover;
+width: 100vw;
+height: 100vh;
+margin: 0;
+font-family: 'Varela Round';
+background-position: center;
+position: relative;
+}
+
+.modal {
+width: 100%;
+/*   filter: blur(8px); */
+background-color: rgba(0,0,0,0.1);
+/*   -webkit-filter: blur(8px); */
+height: 100%;
+display: flex;
+align-items:center;
+justify-content: center;
+}
+.card {
+background-color: rgba(227, 235, 230, 0.5);
+width: 400px;
+height: 500px;
+border-radius: 12px;
+display: flex;
+align-items:center;
+justify-content: center;
+flex-direction: column;
+}
+input {
+background-color: rgba(0,0,0,0);
+box-shadow: 0;
+border: 0;
+border-bottom: 1px #b5b5b5 solid;
+width: 100%;
+font-size: 18px;
+padding: 5px;
+color: rgb(7, 0, 0);
+font-family: 'Varela Round';
+}
+input::placeholder{
+color: darkred;  
+font-size: 16px;
+letter-spacing: 2px;
+font-family: 'Varela Round';
+}
+.input-group {
+width: 70%;
+margin: 10px 0;
+}
+.title {
+font-size: 40px;
+font-family: 'Lobster';
+color: #212c27;
+margin-bottom: 20px;
+}
+input:focus, textarea:focus, select:focus{
+      outline: none;
+}
+button.submit{
+margin: 0 auto;
+border-radius: 25px;
+border: 0;
+cursor:pointer;
+background-color: #1fd086;
+color: rgb(101, 15, 15);
+padding: 10px 30px;
+font-size: 16px;
+margin-top: 60px;
+position:relative;
+left:25%;
+}
+
+/*.................*/
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #ffafbd 50%, #ffc3a0 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.content {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+{% endblock css %}
+{% block body %} 
+
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Varela+Round&display=swap" rel="stylesheet">
+        <div class="bg"></div>
+        <form action='/login' method='post'>
+        <div class="modal"> 
+          <div class="card">
+            <div class="title">Login Here</div>
+            <div class="input-group">
+                <input type="text" name="loginusername" id="loginusername" placeholder="User Name" required/>
+              </div>
+            <div class="input-group">
+              <input type="password" name="loginpass" id="pass" placeholder="Password" required/>
+              {% csrf_token %}
+              <button type="submit" class="submit">Login</button>
+          </div>
+        </div>
+        </form>
+{% endblock body %}

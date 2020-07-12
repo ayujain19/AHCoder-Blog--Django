@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}BLOG HOME {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+
+{% block css %}
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .post {
+    display: flex;
+    width: 70%;
+    margin: 50px auto;
+    box-shadow: 0 5px 15px 0 #777;
+    background: linear-gradient(to bottom, #ffafbd 0%,#ffc3a0 100%);
+  }
+  
+  .time {
+    font-size: 13px;
+    color: black;
+  }
+  
+  .post-author {
+    color: brown;
+  }
+  
+  .post-excerpt {
+    position:relative;
+  }
+  
+ 
+ 
+  .post-content {
+    padding: 20px 30px;
+  }
+  
+  .post-link {
+    display: inline-block;
+    margin: 0 0 15px;
+    padding: 16px 48px;
+    background: linear-gradient(to bottom, #ffafbd 0%,#ffc3a0 100%);
+    color: black;
+    text-decoration: none;
+    border-radius: 4em;
+    transition: background .2s ease-in-out;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .post {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .post {
+      flex-direction: column;
+    }
+    
+    .post-image {
+      height: 270px;
+      max-width: 100%;
+    }
+    
+    .post-content {
+      // padding: 20px 0;
+    }
+  }
+{% endblock %}
+
+{% block body %} 
+
+<div class="container my-3">
+    <span class="text" style=" position: fixed;
+    top: 40%; 
+    right: 92%;
+    transform: translate(50%,-50%);
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 40px;
+    font-weight: 700;
+    color:yellow;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);">TECH Blogs</span>
+    {% for post in allPosts %}
+
+    <div class="post">
+        
+        <div class="post-content">
+        <p class="post-date">Posted on <time>{{post.timeStamp}}</time> by <a class="post-author" href="/blog/{{post.slug}}">{{post.author}}</a> (<span>{{post.views}} views</span>)</p>
+          <h2 class="post-title">{{post.title}}</h2>
+          <div class="post-excerpt">
+            <p>{{post.content|safe| truncatechars:550 }}</p>
+          </div>
+          <a class="post-link" href="/blog/{{post.slug}}">Read More</a>
+        </div>
+      </div>
+      
+      
+        
+    {% endfor %}
+</div>
+
+{% endblock body %}
